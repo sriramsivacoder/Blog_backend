@@ -29,9 +29,14 @@ app.use(express.json());
 app.use("/api/auth", authRoutes);
 
 app.use("/api/blogs", blogRoutes);
+const express = require('express')
+const app = express()
+const port = process.env.PORT || 4000
 
-app.listen(process.env.PORT, () => {
+app.get('/', (req, res) => {
+  res.send('Hello World!')
+})
 
-    console.log("Server Running");
-
-});
+app.listen(port, () => {
+  console.log(`Example app listening on port ${port}`)
+})
